@@ -7,5 +7,7 @@ package edu.unal.vista;
  * @author
  */
 public class AbductedFarmers {
-    
+    public static void main(String[] args) {
+        
+    }
 }
