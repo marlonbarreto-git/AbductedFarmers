@@ -6,7 +6,6 @@ package edu.unal.modelo;
  * @author Valentina Viafara
  */
 public class Enemy {
-    public boolean security;
     
     public void chase(){
     }

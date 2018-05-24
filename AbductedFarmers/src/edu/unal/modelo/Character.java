@@ -5,7 +5,7 @@ package edu.unal.modelo;
  * @author Vanesa Palacios
  * @author Valentina Viafara
  */
-public class Character {
+public abstract class Character {
     private float x,y,size;
     private int speed;
     private Skin skin;
