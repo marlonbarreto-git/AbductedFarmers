@@ -6,5 +6,5 @@ package edu.unal.modelo;
  * @author Valentina Viafara
  */
 public class Weapon {
-    private int TIME;
+    private int time;
 }
