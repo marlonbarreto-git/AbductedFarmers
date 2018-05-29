@@ -3,6 +3,7 @@ package edu.unal.vista;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -33,7 +34,7 @@ public class Validation extends Application {
         pane.setPadding(new Insets(50));
 
         TextField text = new TextField();
-        text.setFont(new Font("Courier", 10));
+        text.setFont(new Font("Courier", 20));
         text.setText("Serial de Activacion");
         text.setRotate(2);
 
@@ -70,6 +71,8 @@ public class Validation extends Application {
         principal.getChildren().add(new ImageView(new Image(new FileInputStream("resources/backgroung.png"))));
         principal.getChildren().add(border);
 
+        principal.setEffect(new MotionBlur( 10, 2));
+        
         Scene scene = new Scene(principal, 500, 300);
 
         primaryStage.setTitle("Validacion Abducted Farmers");
@@ -77,6 +80,8 @@ public class Validation extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setOpacity(0.8);
+
     }
 
     public boolean Validar(String serial) {
