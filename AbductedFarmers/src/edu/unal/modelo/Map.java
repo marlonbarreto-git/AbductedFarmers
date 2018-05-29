@@ -20,7 +20,7 @@ public class Map extends JPanel {
     private URL url = null;
 
     public Map() {
-        mapa = cargar("design.txt");
+        //mapa = cargar("design.txt");
     }
 
     @Override
@@ -31,23 +31,23 @@ public class Map extends JPanel {
 
     private void drawScene(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        for (int i = 0; i < mapa.length; i++) {
-          for (int j = 0; j < mapa[i].length; j++) {
-              if(mapa[i][j] == 0){
-                 g.setColor(Color.white);
-                 g.fillRect(i*30, j*20,30, 30);
-              }else if(mapa[i][j] == 1){
-                 g.setColor(Color.BLACK);
-                 g.fillRect(i*30, j*20,30, 30);
-                 g.setColor(Color.white);
-              }else if(mapa[i][j] == 2){
-                 g.setColor(Color.RED);
-                 g.fillRect(i*30, j*20,30, 30);
-                 g.setColor(Color.white);
-              }
-          }   
-            System.out.println("");
-        }
+//        for (int i = 0; i < mapa.length; i++) {
+//          for (int j = 0; j < mapa[i].length; j++) {
+//              if(mapa[i][j] == 0){
+//                 g.setColor(Color.white);
+//                 g.fillRect(i*30, j*20,30, 30);
+//              }else if(mapa[i][j] == 1){
+//                 g.setColor(Color.BLACK);
+//                 g.fillRect(i*30, j*20,30, 30);
+//                 g.setColor(Color.white);
+//              }else if(mapa[i][j] == 2){
+//                 g.setColor(Color.RED);
+//                 g.fillRect(i*30, j*20,30, 30);
+//                 g.setColor(Color.white);
+//              }
+//          }   
+//            System.out.println("");
+//        }
     }
 
     public void actionPerformed(ActionEvent e) {

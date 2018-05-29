@@ -1,6 +1,10 @@
 package edu.unal.vista;
 
 import edu.unal.modelo.Map;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import javax.swing.JFrame;
 
 /**
@@ -21,13 +25,6 @@ public class AbductedFarmers extends JFrame{
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-    }    
-                
-    public static void main(String[] args) {
-        AbductedFarmers ex = new AbductedFarmers();
-        ex.setVisible(true);
-       
     }
-
-
+    
 }
