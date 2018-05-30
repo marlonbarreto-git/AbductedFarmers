@@ -26,7 +26,8 @@ public class Validation extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Font.loadFont(new FileInputStream("resources/AlienPlanet.ttf"), 15);
+        
+        Font.loadFont(new FileInputStream("res/AlienPlanet.ttf"), 15);
 
         BorderPane border = new BorderPane();
 
@@ -52,7 +53,7 @@ public class Validation extends Application {
             }
         });
         ok.setCursor(Cursor.HAND);
-        ok.setEffect(new ImageInput(new Image(new FileInputStream("resources/large.png"))));
+        ok.setEffect(new ImageInput(new Image(new FileInputStream("res/large.png"))));
 
         pane.setAlignment(Pos.TOP_CENTER);
         pane.getChildren().add(text);
@@ -68,7 +69,7 @@ public class Validation extends Application {
         border.setTop(title);
 
         StackPane principal = new StackPane();
-        principal.getChildren().add(new ImageView(new Image(new FileInputStream("resources/backgroung.png"))));
+        principal.getChildren().add(new ImageView(new Image(new FileInputStream("res/backgroung.png"))));
         principal.getChildren().add(border);
 
         principal.setEffect(new MotionBlur( 10, 2));
@@ -87,7 +88,7 @@ public class Validation extends Application {
     public boolean Validar(String serial) {
         boolean activated = false;
         try {
-            Scanner scan = new Scanner(new FileInputStream("resources/activationCode.txt"));
+            Scanner scan = new Scanner(new FileInputStream("res/activationCode.txt"));
             while (scan.hasNext()) {
                 if (scan.nextLine().equals(serial)) {
                     activated = true;
