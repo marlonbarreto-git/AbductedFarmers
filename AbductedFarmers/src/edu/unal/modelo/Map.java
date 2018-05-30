@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 public class Map extends JPanel {
 
     private int[][] mapa;
-    private URL url = null;
 
     public Map() {
         //mapa = cargar("design.txt");

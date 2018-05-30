@@ -68,7 +68,6 @@ public class Validation extends Application {
             String serial = text.getText();
             if (Validar(serial)) {
                 AbductedFarmers game = new AbductedFarmers();
-                game.setVisible(true);
                 primaryStage.setOpacity(0);
             }
         });
@@ -124,7 +123,6 @@ public class Validation extends Application {
 
     public static void main(String[] args) {
         Application.launch(args);
-
     }
 
 }
