@@ -33,7 +33,7 @@ public class Map extends Canvas {
         Graphics2D graph = (Graphics2D) g;
         drawObject(g, 0, 0, "backgroundG.png");
         drawObject(g, xRoot, yRoot, "pasto.jpg");
-        drawObject(g, xRoot + (30 * tileSize), yRoot, "casa.png");
+        
         drawObject(g, xRoot + (28 * tileSize), yRoot + (1 * tileSize), "escavadora.png");
         for (int i = 0; i < 5; i++) {
             drawObject(g, xRoot + (26 * tileSize), yRoot + (i * tileSize), "piedra.png");
@@ -41,7 +41,20 @@ public class Map extends Canvas {
         for (int i = 0; i < 5; i++) {
             drawObject(g, xRoot + ((34-i) * tileSize), yRoot + (7 * tileSize), "piedra.png");
         }
+        for(int i=24;i>=0;i--){
+            drawObject(g, xRoot+ (i * tileSize), yRoot+ (0 * tileSize), "arbusto.png");
+        }
         drawObject(g, xRoot + (22 * tileSize), yRoot, "choza.png");
+        for(int i=23;i>=0;i--){
+            drawObject(g, xRoot+ (0 * tileSize), yRoot+ (i * tileSize), "arbusto.png");
+        }
+        for(int i=0;i<35;i++){
+            drawObject(g, xRoot+ (i * tileSize), yRoot+ (23 * tileSize), "arbusto.png");
+        }
+        for(int i=23;i>=0;i--){
+            drawObject(g, xRoot+ (35 * tileSize), yRoot+ (i * tileSize), "arbusto.png");
+        }
+        drawObject(g, xRoot + (30 * tileSize), yRoot, "casa.png");
         player.paint(graph);
     }
 
