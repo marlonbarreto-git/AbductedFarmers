@@ -5,7 +5,7 @@ package edu.unal.modelo;
  * @author Vanesa Palacios
  * @author Valentina Viafara
  */
-public class Player {
+public class Player extends Character{
     private boolean power;
     private int score;
 
