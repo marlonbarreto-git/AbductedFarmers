@@ -1,9 +1,7 @@
 package edu.unal.vista;
 
 import edu.unal.modelo.Map;
-import edu.unal.modelo.Player;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -15,7 +13,6 @@ public class AbductedFarmers {
 
     private boolean left, right, up, down;
     private Map map;
-    private Player player;
     private JFrame UI;
 
     public AbductedFarmers() {
@@ -39,7 +36,7 @@ public class AbductedFarmers {
         UI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         UI.setSize(800, 630);
         UI.setResizable(false);
-        
+
         gameLoop();
     }
 

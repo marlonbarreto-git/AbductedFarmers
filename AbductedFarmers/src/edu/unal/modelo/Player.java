@@ -5,14 +5,14 @@ package edu.unal.modelo;
  * @author Vanesa Palacios
  * @author Valentina Viafara
  */
-public class Player {
+public class Player extends Character {
     private boolean power;
     private int score;
 
-    public Player() {
-        this.power = false;
-        this.score = 0;
+    public Player(int posX, int posY, int size, String imageName) {
+        super(posX, posY, size, imageName);
     }
+
     
     public void countScore(){ 
     }
