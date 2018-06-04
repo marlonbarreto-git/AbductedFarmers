@@ -10,6 +10,7 @@ import java.awt.Image;
  * @author Valentina Viafara
  */
 public abstract class Character {
+
     private int posX,posY,size;
     private int speed;
     private Image skin;
