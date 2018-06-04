@@ -11,6 +11,8 @@ public class Player extends Character {
 
     public Player(int posX, int posY, int size, String imageName) {
         super(posX, posY, size, imageName);
+        this.power = false;
+        this.score = 0;
     }
 
     
