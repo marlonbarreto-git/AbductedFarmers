@@ -1,38 +1,64 @@
 package edu.unal.modelo;
 
-import edu.unal.vista.AbductedFarmers;
 import static edu.unal.vista.AbductedFarmers.loadImage;
-import java.awt.BorderLayout;
+import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.Graphics2D;
 
 /**
  * @author Marlon Andres Barreto Tejada
  * @author Vanesa Palacios
  * @author Valentina Viafara
  */
-public class Map extends JPanel {
+public class Map extends Canvas {
 
-    private int[][] mapa;
+    private int tileSize,xRoot,yRoot;
 
     public Map() {
-
+        initMap();
     }
 
+    public void initMap(){
+        tileSize = 16;
+        xRoot = 50;
+        yRoot = 35;
+    }
+    
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.red);
-        g.drawImage(loadImage("res/pasto.jpg"), 50, 25, this);
-        
+        super.paint(g);
+        Graphics2D graph = (Graphics2D) g;
+        graph.drawImage(loadImage("res/backgroundG.png"), 0, 0, null);
+        graph.drawImage(loadImage("res/pasto.jpg"), xRoot, yRoot, null);
+        graph.setColor(Color.RED);
+        graph.fillRect(xRoot, yRoot, tileSize, tileSize);
     }
 
-    public ArrayList<ArrayList<Integer>> cargar(String ruta) {
-        return null;
+    public int getTileSize() {
+        return tileSize;
     }
 
+    public void setTileSize(int tileSize) {
+        this.tileSize = tileSize;
+    }
 
+    public int getxRoot() {
+        return xRoot;
+    }
+
+    public void setxRoot(int xRoot) {
+        this.xRoot = xRoot;
+    }
+
+    public int getyRoot() {
+        return yRoot;
+    }
+
+    public void setyRoot(int yRoot) {
+        this.yRoot = yRoot;
+    }
+
+    
+    
 }
