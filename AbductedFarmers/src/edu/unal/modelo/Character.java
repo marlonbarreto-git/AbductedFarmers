@@ -22,21 +22,26 @@ public abstract class Character {
         this.skin = loadImage("res/" + imageName);
     }
 
-    public void move(String dir) {
+    public boolean move(String dir) {
         int tempX = (posX - Map.getxRoot()) / Map.getTileSize(),
                 tempY = (posY - Map.getyRoot()) / Map.getTileSize();
         if (dir.equals("left") && tempX - 1 >= 0 && !Map.isBlock(tempX - 1, tempY)) {
             posX -= Map.getTileSize();
+            return true;
         }
         if (dir.equals("right") && tempX + 1 < 36 && !Map.isBlock(tempX + 1, tempY)) {
             posX += Map.getTileSize();
+            return true;
         }
         if (dir.equals("down") && tempY + 1 < 25 && !Map.isBlock(tempX, tempY + 1)) {
             posY += Map.getTileSize();
+            return true;
         }
         if (dir.equals("up") && tempY - 1 >= 0 && !Map.isBlock(tempX, tempY - 1)) {
             posY -= Map.getTileSize();
+            return true;
         }
+        return false;
     }
 
     public void paint(Graphics2D g) {
