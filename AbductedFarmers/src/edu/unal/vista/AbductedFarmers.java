@@ -22,7 +22,7 @@ public class AbductedFarmers {
     }
 
     private void startGame() {
-        JFrame UI = new JFrame("Abducted Farmers");
+        UI = new JFrame("Abducted Farmers");
 
         map = new Map();
         map.addKeyListener(new KeyListener() {
@@ -34,21 +34,21 @@ public class AbductedFarmers {
             @Override
             public void keyPressed(KeyEvent e) {
                 int x = map.getPlayer().getPosX(),
-                    y = map.getPlayer().getPosY();
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    map.getPlayer().move("left", map.getTileSize());
-		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    map.getPlayer().move("right", map.getTileSize());
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    map.getPlayer().move("down", map.getTileSize());
-		}
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    map.getPlayer().move("up", map.getTileSize());
-		}
+                        y = map.getPlayer().getPosY();
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    map.getPlayer().move("left");
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    map.getPlayer().move("right");
+                }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    map.getPlayer().move("down");
+                }
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    map.getPlayer().move("up");
+                }
                 map.repaint();
-	}
+            }
 
             @Override
             public void keyReleased(KeyEvent e) {

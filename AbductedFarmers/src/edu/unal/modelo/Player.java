@@ -1,8 +1,5 @@
 package edu.unal.modelo;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 /**
  * @author Marlon Andres Barreto Tejada
  * @author Vanesa Palacios

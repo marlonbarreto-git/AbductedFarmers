@@ -22,18 +22,20 @@ public abstract class Character {
         this.skin = loadImage("res/" + imageName);
     }
 
-    public void move(String dir,int d) {
-        if(dir.equals("left")){
-            posX-=d;
+    public void move(String dir) {
+        int tempX = (posX - Map.getxRoot()) / Map.getTileSize(),
+                tempY = (posY - Map.getyRoot()) / Map.getTileSize();
+        if (dir.equals("left") && tempX - 1 >= 0 && !Map.isBlock(tempX - 1, tempY)) {
+            posX -= Map.getTileSize();
         }
-        if(dir.equals("right")){
-            posX+=d;
+        if (dir.equals("right") && tempX + 1 < 36 && !Map.isBlock(tempX + 1, tempY)) {
+            posX += Map.getTileSize();
         }
-        if(dir.equals("down")){
-            posY+=d;
+        if (dir.equals("down") && tempY + 1 < 25 && !Map.isBlock(tempX, tempY + 1)) {
+            posY += Map.getTileSize();
         }
-        if(dir.equals("up")){
-            posY-=d;
+        if (dir.equals("up") && tempY - 1 >= 0 && !Map.isBlock(tempX, tempY - 1)) {
+            posY -= Map.getTileSize();
         }
     }
 
@@ -63,6 +65,10 @@ public abstract class Character {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public boolean moveValidation() {
+        return false;
     }
 
 }
