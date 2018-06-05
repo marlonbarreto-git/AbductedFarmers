@@ -204,7 +204,7 @@ public class Map extends Canvas {
             drawObject(g, xRoot + (29 * tileSize), yRoot + (i * tileSize), "arbusto.png");
             block[i][29] = true;
         }
-        
+
         //Nave espacial
         drawObject(g, xRoot + (16 * tileSize), yRoot + (10 * tileSize), "nave.png");
 
@@ -220,6 +220,15 @@ public class Map extends Canvas {
         for (int j = 0; j < 4; j++) {
             for (int i = 30; i < 35; i++) {
                 block[j][i] = true;
+            }
+        }
+
+        //Maiz del piso
+        for (int j = 0; j < 25; j++) {
+            for (int i = 0; i < 36; i++) {
+                if (block[j][i] == false) {
+                    drawObject(g, xRoot + (i * tileSize), yRoot + (j * tileSize), "maize.png");
+                }
             }
         }
 
