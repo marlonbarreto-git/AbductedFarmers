@@ -2,7 +2,6 @@ package edu.unal.modelo;
 
 import static edu.unal.vista.AbductedFarmers.loadImage;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -82,6 +81,14 @@ public class Map extends Canvas {
         this.yRoot = yRoot;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
     public void drawObject(Graphics g, int x, int y, String objeto) {
         Graphics2D graph = (Graphics2D) g;
         graph.drawImage(loadImage("res/" + objeto), x, y, null);

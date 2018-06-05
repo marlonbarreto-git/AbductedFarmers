@@ -11,21 +11,32 @@ import java.awt.Image;
  */
 public abstract class Character {
 
-    private int posX,posY,size;
+    private int posX, posY, size;
     private int speed;
     private Image skin;
 
-    public Character(int posX, int posY, int size,String imageName) {
+    public Character(int posX, int posY, int size, String imageName) {
         this.posX = posX;
         this.posY = posY;
         this.size = size;
         this.skin = loadImage("res/" + imageName);
     }
-    
-    public void move(){
-        
+
+    public void move(String dir,int d) {
+        if(dir.equals("left")){
+            posX-=d;
+        }
+        if(dir.equals("right")){
+            posX+=d;
+        }
+        if(dir.equals("down")){
+            posY+=d;
+        }
+        if(dir.equals("up")){
+            posY-=d;
+        }
     }
-    
+
     public void paint(Graphics2D g) {
         g.drawImage(skin, posX, posY, null);
     }
@@ -53,7 +64,5 @@ public abstract class Character {
     public void setSize(int size) {
         this.size = size;
     }
-    
-    
-    
+
 }

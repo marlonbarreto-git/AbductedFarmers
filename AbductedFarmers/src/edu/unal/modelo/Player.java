@@ -1,12 +1,15 @@
 package edu.unal.modelo;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  * @author Marlon Andres Barreto Tejada
  * @author Vanesa Palacios
  * @author Valentina Viafara
  */
-
 public class Player extends Character{
+
     private boolean power;
     private int score;
 
@@ -16,11 +19,10 @@ public class Player extends Character{
         this.score = 0;
     }
 
-    
-    public void countScore(){ 
+    public void countScore() {
     }
-    
-    public void attack(){
+
+    public void attack() {
     }
-    
+
 }
