@@ -23,8 +23,8 @@ public abstract class Character {
     }
 
     public boolean move(String dir) {
-        int tempX = (posX - Map.getxRoot()) / Map.getTileSize(),
-                tempY = (posY - Map.getyRoot()) / Map.getTileSize();
+        int tempX = getTilePosX(),
+                tempY = getTilePosY();
         if (dir.equals("left") && tempX - 1 >= 0 && !Map.isBlock(tempX - 1, tempY)) {
             posX -= Map.getTileSize();
             return true;
@@ -70,6 +70,21 @@ public abstract class Character {
 
     public void setSize(int size) {
         this.size = size;
+    }
+    
+    public int getTilePosX() {
+        return (posX-Map.getxRoot())/Map.getTileSize();
+    }
+
+    public int getTilePosY() {
+        return (posY-Map.getyRoot())/Map.getTileSize();
+    }
+
+    protected void cogerMaiz() {
+        int x = getTilePosX(),y = getTilePosY();
+        if(Map.maize[y][x] == true){
+            Map.maize[y][x] = false;
+        }
     }
 
 }

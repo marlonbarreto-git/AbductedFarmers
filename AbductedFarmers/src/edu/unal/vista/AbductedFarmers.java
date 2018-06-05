@@ -19,7 +19,6 @@ public class AbductedFarmers {
     public AbductedFarmers() {
         UI = new JFrame("Abducted Farmers");
         map = new Map();
-        
     }
 
     public void startGame() {
@@ -54,17 +53,10 @@ public class AbductedFarmers {
             }
         });
 
-        JLabel puntajeLabel = new JLabel("Puntaje :");
-        Font puntajeFont = new Font("Courier", 0, 25);
-        puntajeLabel.setForeground(Color.BLACK);
-        puntajeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        puntajeLabel.setFont(puntajeFont);
-        UI.add(puntajeLabel, BorderLayout.SOUTH);
-
         UI.add(map, BorderLayout.CENTER);
         UI.setVisible(true);
         UI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        UI.setSize(800, 630);
+        UI.setSize(800, 600);
         UI.setResizable(false);
         gameLoop();
     }
@@ -81,7 +73,6 @@ public class AbductedFarmers {
 
     public static void main(String[] args) {
         new AbductedFarmers().startGame();
-
     }
 
 }
