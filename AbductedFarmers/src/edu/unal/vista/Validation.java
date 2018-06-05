@@ -29,25 +29,16 @@ import javafx.stage.Stage;
  */
 public class Validation extends Application {
 
+    AbductedFarmers game;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Sonido de fondo que estara durante todo el video Juego
-        URL url = null;
-        try {
-            url = new URL("file:res/ToyStory.wav");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Validation.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        AudioClip ac = Applet.newAudioClip(url);
-        ac.loop(); //para que el sonido se repita al finalizar
-        ac.play(); //para iniciar el sonido en un hilo
-        
         //Tipografia para el titulo de la ventana de Validacion
         Font.loadFont(new FileInputStream("res/AlienPlanet.ttf"), 15);
 
         //Layout contenedor de los demas, excepto el fondo, que esta en el StackPane
         BorderPane border = new BorderPane();
-        
+
         VBox pane = new VBox();
         pane.setPadding(new Insets(50));
 
@@ -67,8 +58,18 @@ public class Validation extends Application {
         ok.setOnAction((event) -> {
             String serial = text.getText();
             if (Validar(serial)) {
-                AbductedFarmers game = new AbductedFarmers();
-                primaryStage.setOpacity(0);
+                game = new AbductedFarmers();
+                game.startGame();
+                primaryStage.setIconified(true);
+//                //Cancion de fondo
+//                URL url = null;
+//                try {
+//                    url = new URL("file:res/ToyStory.wav");
+//                } catch (MalformedURLException ex) {
+//                    Logger.getLogger(Validation.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                AudioClip ac = Applet.newAudioClip(url);
+//                ac.loop(); //para que el sonido se reproduzca y se repita al finalizar
             }
         });
         ok.setCursor(Cursor.HAND);//Cursor al pasar el mouse sobre el boton

@@ -17,13 +17,12 @@ public class AbductedFarmers {
     private JFrame UI;
 
     public AbductedFarmers() {
-        startGame();
+        UI = new JFrame("Abducted Farmers");
+        map = new Map();
+        
     }
 
-    private void startGame() {
-        UI = new JFrame("Abducted Farmers");
-
-        map = new Map();
+    public void startGame() {
         map.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -67,7 +66,6 @@ public class AbductedFarmers {
         UI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         UI.setSize(800, 630);
         UI.setResizable(false);
-
         gameLoop();
     }
 
