@@ -13,7 +13,6 @@ import javax.swing.*;
  */
 public class AbductedFarmers {
 
-    //private boolean left, right, up, down;
     private Map map;
     private JFrame UI;
 

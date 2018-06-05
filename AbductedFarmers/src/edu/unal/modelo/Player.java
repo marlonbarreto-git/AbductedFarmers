@@ -22,4 +22,8 @@ public class Player extends Character{
     public void attack() {
     }
 
+    public void setScore(int score){
+        this.score = score;
+    }
+    
 }

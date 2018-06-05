@@ -62,7 +62,7 @@ public class Map extends Canvas {
             drawObject(g, xRoot + ((34 - i) * tileSize), yRoot + (7 * tileSize), "piedra.png");
             block[7][34 - i] = true;
         }
-        //Cerca de Arbustos
+        //Limites de Arbustos
         for (int i = 24; i >= 0; i--) {
             drawObject(g, xRoot + (i * tileSize), yRoot + (0 * tileSize), "arbusto.png");
             block[0][i] = true;
@@ -79,6 +79,102 @@ public class Map extends Canvas {
             drawObject(g, xRoot + (35 * tileSize), yRoot + (i * tileSize), "arbusto.png");
             block[i][35] = true;
         }
+
+        //Arbustos centrales donde estara la nave Alien
+        {
+            int x1 = 13,
+                    x2 = 23,
+                    y1 = 8,
+                    y2 = 17;
+
+            for (int i = x1; i < x2; i++) {
+                if (i == 17 || i == 18 || i == 19) {
+
+                } else {
+                    drawObject(g, xRoot + (i * tileSize), yRoot + (y1 * tileSize), "arbusto.png");
+                    block[y1][i] = true;
+                }
+
+            }
+            for (int i = x1; i < x2; i++) {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (y2 * tileSize), "arbusto.png");
+                block[y2][i] = true;
+            }
+            for (int i = y1; i <= y2; i++) {
+                drawObject(g, xRoot + (x1 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+                block[i][x1] = true;
+            }
+            for (int i = y1; i <= y2; i++) {
+                drawObject(g, xRoot + (x2 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+                block[i][x2] = true;
+            }
+        }
+        //Laberinto
+        for (int i = 3; i < 34; i++) {
+            if (i == 17 || i == 18 || i == 19) {
+
+            } else {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (21 * tileSize), "arbusto.png");
+                block[21][i] = true;
+            }
+        }
+
+        for (int i = 0; i < 36; i++) {
+            if (i > 4 && i < 32) {
+
+            } else {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (18 * tileSize), "arbusto.png");
+                block[18][i] = true;
+            }
+        }
+
+        for (int i = 0; i < 36; i++) {
+            if (i > 7 && i < 9 || i > 11 && i < 29) {
+
+            } else {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (15 * tileSize), "arbusto.png");
+                block[15][i] = true;
+            }
+        }
+
+        for (int i = 0; i < 36; i++) {
+            if (i > 0 && i < 3 || i > 6 && i < 30 || i > 33) {
+
+            } else {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (12 * tileSize), "arbusto.png");
+                block[12][i] = true;
+            }
+        }
+        for (int i = 0; i < 36; i++) {
+            if (i > 3 && i < 30 || i > 33) {
+
+            } else {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (9 * tileSize), "arbusto.png");
+                block[9][i] = true;
+            }
+        }
+        for (int i = 3; i < 6; i++) {
+            drawObject(g, xRoot + (i * tileSize), yRoot + (6 * tileSize), "arbusto.png");
+            block[6][i] = true;
+        }
+        for (int i = 13; i < 15; i++) {
+            drawObject(g, xRoot + (i * tileSize), yRoot + (6 * tileSize), "arbusto.png");
+            block[6][i] = true;
+        }
+        for (int i = 0; i < 36; i++) {
+            if (i > 4 && i < 8 || i > 10 && i < 18) {
+                drawObject(g, xRoot + (i * tileSize), yRoot + (3 * tileSize), "arbusto.png");
+                block[3][i] = true;
+            }
+        }
+        for (int i = 3; i < 6; i++) {
+            drawObject(g, xRoot + (3 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][3] = true;
+        }
+
+        //Nave espacial
+        drawObject(g, xRoot + (16 * tileSize), yRoot + (10 * tileSize), "nave.png");
+
         //Choza del Granjero
         drawObject(g, xRoot + (22 * tileSize), yRoot + (0 * tileSize), "choza.png");
         for (int j = 0; j < 3; j++) {
