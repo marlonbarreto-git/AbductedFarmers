@@ -75,5 +75,8 @@ public abstract class Character {
     public boolean moveValidation() {
         return false;
     }
-
+    
+    public Rectangle getBounds() {
+        return new Rectangle(posX, posY, width, height);
+    }
 }
