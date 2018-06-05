@@ -129,7 +129,7 @@ public class Map extends Canvas {
         }
 
         for (int i = 0; i < 36; i++) {
-            if (i > 7 && i < 9 || i > 11 && i < 29) {
+            if (i > 0 && i < 2 || i > 7 && i < 9 || i > 11 && i < 29 || i > 33 && i < 36) {
 
             } else {
                 drawObject(g, xRoot + (i * tileSize), yRoot + (15 * tileSize), "arbusto.png");
@@ -173,13 +173,38 @@ public class Map extends Canvas {
         }
         for (int i = 5; i < 9; i++) {
             drawObject(g, xRoot + (7 * tileSize), yRoot + (i * tileSize), "arbusto.png");
-            block[i][3] = true;
+            block[i][7] = true;
         }
         for (int i = 15; i < 20; i++) {
             drawObject(g, xRoot + (7 * tileSize), yRoot + (i * tileSize), "arbusto.png");
-            block[i][3] = true;
+            block[i][7] = true;
+        }
+        for (int i = 5; i < 11; i++) {
+            drawObject(g, xRoot + (11 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][11] = true;
         }
 
+        for (int i = 17; i < 22; i++) {
+            drawObject(g, xRoot + (11 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][11] = true;
+        }
+        for (int i = 5; i < 8; i++) {
+            drawObject(g, xRoot + (16 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][16] = true;
+        }
+        for (int i = 19; i < 22; i++) {
+            drawObject(g, xRoot + (18 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][18] = true;
+        }
+        for (int i = 9; i < 19; i++) {
+            drawObject(g, xRoot + (26 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][26] = true;
+        }
+        for (int i = 16; i < 20; i++) {
+            drawObject(g, xRoot + (29 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][29] = true;
+        }
+        
         //Nave espacial
         drawObject(g, xRoot + (16 * tileSize), yRoot + (10 * tileSize), "nave.png");
 
