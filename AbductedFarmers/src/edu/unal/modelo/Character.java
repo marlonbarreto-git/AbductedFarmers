@@ -72,16 +72,4 @@ public abstract class Character {
         this.size = size;
     }
 
-    public boolean moveValidation() {
-        return false;
-    }
-    
-    public void getImageDimensions() {
-        width = skin.getWidth(null);
-        height = skin.getHeight(null);
-    }
-    
-     public Rectangle getBounds() {
-         return new Rectangle(posX, posY, width, height);
-     }
 }
