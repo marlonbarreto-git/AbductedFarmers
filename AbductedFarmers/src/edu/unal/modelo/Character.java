@@ -76,5 +76,12 @@ public abstract class Character {
         return false;
     }
     
-  
+    public void getImageDimensions() {
+        width = skin.getWidth(null);
+        height = skin.getHeight(null);
+    }
+    
+     public Rectangle getBounds() {
+         return new Rectangle(posX, posY, width, height);
+     }
 }
