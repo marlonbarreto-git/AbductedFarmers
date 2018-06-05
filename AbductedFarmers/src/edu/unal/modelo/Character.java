@@ -28,19 +28,19 @@ public abstract class Character {
         if (dir.equals("left") && tempX - 1 >= 0 && !Map.isBlock(tempX - 1, tempY)) {
             posX -= Map.getTileSize();
             return true;
-        }
+        }else 
         if (dir.equals("right") && tempX + 1 < 36 && !Map.isBlock(tempX + 1, tempY)) {
             posX += Map.getTileSize();
             return true;
-        }
+        }else 
         if (dir.equals("down") && tempY + 1 < 25 && !Map.isBlock(tempX, tempY + 1)) {
             posY += Map.getTileSize();
             return true;
-        }
+        }else 
         if (dir.equals("up") && tempY - 1 >= 0 && !Map.isBlock(tempX, tempY - 1)) {
             posY -= Map.getTileSize();
             return true;
-        }
+        }else 
         return false;
     }
 

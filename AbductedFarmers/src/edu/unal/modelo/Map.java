@@ -29,7 +29,7 @@ public class Map extends Canvas {
         yRoot = 35;
         numTilesX = 720 / tileSize;
         numTilesY = 500 / tileSize;
-        player = new Player(xRoot + (2 * tileSize), yRoot + (2 * tileSize), 30, "farmer.png");
+        player = new Player(xRoot + (1 * tileSize), yRoot + (1 * tileSize), 30, "farmer.png");
         block = new boolean[numTilesY][numTilesX];
         for (int i = 0; i < numTilesY; i++) {
             for (int j = 0; j < numTilesX; j++) {
@@ -169,6 +169,14 @@ public class Map extends Canvas {
         }
         for (int i = 3; i < 6; i++) {
             drawObject(g, xRoot + (3 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][3] = true;
+        }
+        for (int i = 5; i < 9; i++) {
+            drawObject(g, xRoot + (7 * tileSize), yRoot + (i * tileSize), "arbusto.png");
+            block[i][3] = true;
+        }
+        for (int i = 15; i < 20; i++) {
+            drawObject(g, xRoot + (7 * tileSize), yRoot + (i * tileSize), "arbusto.png");
             block[i][3] = true;
         }
 
