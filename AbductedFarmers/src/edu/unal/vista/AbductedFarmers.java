@@ -5,6 +5,9 @@ import static edu.unal.modelo.Map.timer;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -18,8 +21,12 @@ public class AbductedFarmers {
     private JFrame UI;
 
     public AbductedFarmers() {
-        UI = new JFrame("Abducted Farmers");
-        map = new Map();
+        try {
+            UI = new JFrame("Abducted Farmers");
+            map = new Map();
+        } catch (IOException ex) {
+            Logger.getLogger(AbductedFarmers.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void startGame() {

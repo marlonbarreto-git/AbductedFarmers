@@ -6,8 +6,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Timer;
 
 /**
@@ -27,12 +31,14 @@ public class Map extends Canvas {
     private ArrayList<Enemy> enemys;
     public static Timer timer;
     public static int maxScore;
+    public static FileWriter scores;
 
-    public Map() {
+    public Map() throws IOException {
         initMap();
     }
 
-    public void initMap() {
+    public void initMap() throws IOException {
+        scores = new FileWriter("res/Scores.txt",true);
         maxScore = 24400;
         tileSize = 20;
         xRoot = 50;
@@ -40,7 +46,6 @@ public class Map extends Canvas {
         numTilesX = 720 / tileSize;
         numTilesY = 500 / tileSize;
         player = new Player(xRoot + (32 * tileSize), yRoot + (5 * tileSize), 30, "farmer.png");
-        player.setScore(24300);
         enemys = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             enemys.add(new Enemy(xRoot + ((14 + i) * tileSize), yRoot + ((9 + i) * tileSize), 30, "enemy1.png"));
@@ -92,7 +97,12 @@ public class Map extends Canvas {
             g.setFont(new Font("Courier", 3, 150));
             g.drawString("GAME OVER", xRoot - 50, yRoot + 250);
             g.drawString("WINNER", xRoot, yRoot + 400);
-
+            try {
+                scores.write("Player .......... " + player.getScore() + "\n");
+                scores.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Map.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (player.getLives() <= 0) {
             //Fondo del Juego
             g.setColor(Color.BLACK);
@@ -111,6 +121,12 @@ public class Map extends Canvas {
             g.setFont(new Font("Courier", 0, 150));
             g.drawString("GAME OVER", xRoot - 50, yRoot + 250);
             g.drawString("LOSER!!!", xRoot, yRoot + 400);
+            try {
+                scores.write("Player .......... " + player.getScore() + "\n");
+                scores.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Map.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         } else {
 
