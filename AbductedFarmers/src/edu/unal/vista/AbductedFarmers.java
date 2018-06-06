@@ -1,6 +1,7 @@
 package edu.unal.vista;
 
 import edu.unal.modelo.Map;
+import static edu.unal.modelo.Map.timer;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -32,6 +33,13 @@ public class AbductedFarmers {
             public void keyPressed(KeyEvent e) {
                 int x = map.getPlayer().getPosX(),
                         y = map.getPlayer().getPosY();
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    if(timer.isRunning()){
+                        timer.stop();
+                    }else
+                    timer.start();
+                    
+                }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     map.getPlayer().move("left");
                 }
@@ -44,7 +52,6 @@ public class AbductedFarmers {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     map.getPlayer().move("up");
                 }
-                map.repaint();
             }
 
             @Override
@@ -58,17 +65,12 @@ public class AbductedFarmers {
         UI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         UI.setSize(800, 600);
         UI.setResizable(false);
-        gameLoop();
     }
 
     public static Image loadImage(String imageName) {
         ImageIcon ii = new ImageIcon(imageName);
         Image image = ii.getImage();
         return image;
-    }
-
-    public void gameLoop() {
-
     }
 
     public static void main(String[] args) {

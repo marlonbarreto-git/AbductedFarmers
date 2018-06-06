@@ -14,7 +14,7 @@ public class Player extends Character{
         super(posX, posY, size, imageName);
         this.power = false;
         this.score = 0;
-        this.lives = 3;
+        this.lives = 6;
     }
 
     public void countScore() {

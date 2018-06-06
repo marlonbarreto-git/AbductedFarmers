@@ -6,7 +6,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.Timer;
 
 /**
  * @author Marlon Andres Barreto Tejada
@@ -22,6 +24,9 @@ public class Map extends Canvas {
     private Player player;
     private static boolean[][] block;
     public static boolean[][] maize;
+    private ArrayList<Enemy> enemys;
+    public static Timer timer;
+    public static int maxScore;
 
     public Map() {
         initMap();
@@ -33,7 +38,11 @@ public class Map extends Canvas {
         yRoot = 35;
         numTilesX = 720 / tileSize;
         numTilesY = 500 / tileSize;
-        player = new Player(xRoot + (1 * tileSize), yRoot + (1 * tileSize), 30, "farmer.png");
+        player = new Player(xRoot + (32 * tileSize), yRoot + (5 * tileSize), 30, "farmer.png");
+        enemys = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            enemys.add(new Enemy(xRoot + ((14 + i) * tileSize), yRoot + ((9 + i) * tileSize), 30, "enemy1.png"));
+        }
         maize = new boolean[numTilesY][numTilesX];
         block = new boolean[numTilesY][numTilesX];
         for (int i = 0; i < numTilesY; i++) {
@@ -42,6 +51,19 @@ public class Map extends Canvas {
                 maize[i][j] = true;
             }
         }
+        timer = new Timer(120, (e) -> {
+            this.repaint();
+
+            for (Enemy ene : enemys) {
+                if (player.getTilePosX() == ene.getTilePosX() && player.getTilePosY() == ene.getTilePosY()) {
+                    int live = player.getLives() - 1;
+                    player.setLives(live);
+                    player.setPosX(xRoot + (32 * tileSize));
+                    player.setPosY(yRoot + (5 * tileSize));
+                    timer.stop();
+                }
+            }
+        });
 
     }
 
@@ -50,7 +72,7 @@ public class Map extends Canvas {
         super.paint(g);
         Graphics2D graph = (Graphics2D) g;
 
-        if (player.getLives() == 0) {
+        if (player.getScore() >= maxScore && player.getScore() != 0) {
             //Fondo del Juego
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, 800, 600);
@@ -65,8 +87,28 @@ public class Map extends Canvas {
                 }
             }
             g.setColor(Color.WHITE);
+            g.setFont(new Font("Courier", 3, 150));
+            g.drawString("GAME OVER", xRoot - 50, yRoot + 250);
+            g.drawString("WINNER", xRoot, yRoot + 400);
+
+        } else if (player.getLives() <= 0) {
+            //Fondo del Juego
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, 800, 600);
+            Random ran = new Random();
+            for (int j = 0; j < 600 / 20; j++) {
+                for (int i = 0; i < 800 / 20; i++) {
+                    Color color = new Color(ran.nextInt());
+                    g.setColor(color);
+                    char random = (char) ran.nextInt(9000);
+                    g.setFont(new Font("Courier", 3, 20));
+                    g.drawString("" + random, i * 20, j * 20);
+                }
+            }
+            g.setColor(Color.WHITE);
             g.setFont(new Font("Courier", 0, 150));
-            g.drawString("GAME OVER", xRoot-50, yRoot+250);
+            g.drawString("GAME OVER", xRoot - 50, yRoot + 250);
+            g.drawString("LOSER!!!", xRoot, yRoot + 400);
 
         } else {
 
@@ -123,6 +165,10 @@ public class Map extends Canvas {
             }
 
             player.paint(graph);
+            enemys.forEach((e) -> {
+                e.paint(graph);
+                e.moveRandom();
+            });
         }
     }
 
@@ -364,6 +410,7 @@ public class Map extends Canvas {
     }
 
     private void drawMaiz(Graphics g) {
+        maxScore = 0;
         for (int i = 9; i < 17; i++) {
             for (int j = 14; j < 23; j++) {
                 maize[i][j] = false;
@@ -373,6 +420,7 @@ public class Map extends Canvas {
             for (int i = 0; i < 36; i++) {
                 if (maize[j][i] == true) {
                     drawObject(g, xRoot + (i * tileSize), yRoot + (j * tileSize), "maize.png");
+                    maxScore += 50;
                 }
             }
         }

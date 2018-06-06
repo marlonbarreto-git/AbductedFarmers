@@ -1,8 +1,10 @@
 package edu.unal.modelo;
 
+import com.sun.java.swing.plaf.motif.MotifTextUI;
 import static edu.unal.vista.AbductedFarmers.loadImage;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 
 /**
  * @author Marlon Andres Barreto Tejada
@@ -14,12 +16,14 @@ public abstract class Character {
     private int posX, posY, size;
     private int speed;
     private Image skin;
+    private Rectangle space;
 
     public Character(int posX, int posY, int size, String imageName) {
         this.posX = posX;
         this.posY = posY;
         this.size = size;
         this.skin = loadImage("res/" + imageName);
+        this.space = new Rectangle(posX, posY, 30, 30);
     }
 
     public boolean move(String dir) {
@@ -87,4 +91,12 @@ public abstract class Character {
         }
     }
 
+    public Rectangle getSpace() {
+        return space;
+    }
+
+    public void setSpace(Rectangle space) {
+        this.space = space;
+    }
+    
 }

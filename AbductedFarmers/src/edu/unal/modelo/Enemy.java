@@ -1,5 +1,7 @@
 package edu.unal.modelo;
 
+import java.util.Random;
+
 /**
  * @author Marlon Andres Barreto Tejada
  * @author Vanesa Palacios
@@ -11,13 +13,23 @@ public class Enemy extends Character{
         super(posX, posY, size, imageName);
     }
     
-    public void chase(){
-    }
-    
-    public void runAway(){
-    }
-    
-    public void changeColor(){
+    public void moveRandom(){
+        Random r = new Random();
+        int dir = r.nextInt(4);
+        switch(dir){
+                case 0:
+                    move("left");
+                break;
+                case 1:
+                    move("right");
+                break;
+                case 2:
+                    move("down");
+                break;
+                case 3:
+                    move("up");
+                break;
+        }
     }
     
 }
