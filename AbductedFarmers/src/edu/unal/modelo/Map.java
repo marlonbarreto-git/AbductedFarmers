@@ -33,12 +33,14 @@ public class Map extends Canvas {
     }
 
     public void initMap() {
+        maxScore = 24400;
         tileSize = 20;
         xRoot = 50;
         yRoot = 35;
         numTilesX = 720 / tileSize;
         numTilesY = 500 / tileSize;
         player = new Player(xRoot + (32 * tileSize), yRoot + (5 * tileSize), 30, "farmer.png");
+        player.setScore(24300);
         enemys = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             enemys.add(new Enemy(xRoot + ((14 + i) * tileSize), yRoot + ((9 + i) * tileSize), 30, "enemy1.png"));
@@ -72,7 +74,7 @@ public class Map extends Canvas {
         super.paint(g);
         Graphics2D graph = (Graphics2D) g;
 
-        if (player.getScore() >= maxScore && player.getScore() != 0) {
+        if (player.getScore() == maxScore) {
             //Fondo del Juego
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, 800, 600);
@@ -410,7 +412,6 @@ public class Map extends Canvas {
     }
 
     private void drawMaiz(Graphics g) {
-        maxScore = 0;
         for (int i = 9; i < 17; i++) {
             for (int j = 14; j < 23; j++) {
                 maize[i][j] = false;
@@ -420,7 +421,6 @@ public class Map extends Canvas {
             for (int i = 0; i < 36; i++) {
                 if (maize[j][i] == true) {
                     drawObject(g, xRoot + (i * tileSize), yRoot + (j * tileSize), "maize.png");
-                    maxScore += 50;
                 }
             }
         }
