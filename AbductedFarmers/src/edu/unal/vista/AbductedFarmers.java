@@ -2,10 +2,17 @@ package edu.unal.vista;
 
 import edu.unal.modelo.Map;
 import static edu.unal.modelo.Map.timer;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -40,12 +47,42 @@ public class AbductedFarmers {
             public void keyPressed(KeyEvent e) {
                 int x = map.getPlayer().getPosX(),
                         y = map.getPlayer().getPosY();
-                if(e.getKeyCode() == KeyEvent.VK_SPACE){
-                    if(timer.isRunning()){
+                if (e.getKeyCode() == KeyEvent.VK_S) {
+
+                    JFrame puntajes = new JFrame("Scores");
+
+                    JPanel puntos = new JPanel();
+                    puntos.setLayout(new GridLayout(10, 1));
+                    puntos.setBackground(Color.BLACK);
+                    Scanner scan;
+                    try {
+                        scan = new Scanner(new FileInputStream("res/Scores.txt"));
+                        String temp;
+                        while (scan.hasNext()) {
+                            temp = scan.nextLine();
+                            JLabel label = new JLabel();
+                            label.setText(temp);
+                            label.setForeground(Color.WHITE);
+                            label.setFont(new Font("Courier", 0, 20));
+                            puntos.add(label);
+                        }
+                        scan.close();
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(AbductedFarmers.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    puntajes.add(puntos, BorderLayout.CENTER);
+                    puntajes.setSize(300, 500);
+                    puntajes.setVisible(true);
+                    puntajes.setResizable(true);
+
+                }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    if (timer.isRunning()) {
                         timer.stop();
-                    }else
-                    timer.start();
-                    
+                    } else {
+                        timer.start();
+                    }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     map.getPlayer().move("left");
@@ -79,9 +116,4 @@ public class AbductedFarmers {
         Image image = ii.getImage();
         return image;
     }
-
-    public static void main(String[] args) {
-        new AbductedFarmers().startGame();
-    }
-
 }

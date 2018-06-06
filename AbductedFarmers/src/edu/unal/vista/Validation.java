@@ -1,8 +1,14 @@
 package edu.unal.vista;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -96,7 +102,7 @@ public class Validation extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setOpacity(0.8);
+        primaryStage.setOpacity(0.9);
 
     }
 
@@ -117,6 +123,17 @@ public class Validation extends Application {
     }
 
     public static void main(String[] args) {
+
+        //Cancion de fondo
+        URL url = null;
+        try {
+            url = new URL("file:res/ToyStory.mp3");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Validation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        AudioClip ac = Applet.newAudioClip(url);
+        ac.loop(); //para que el sonido se reproduzca y se repita al finalizar
+
         Application.launch(args);
     }
 
