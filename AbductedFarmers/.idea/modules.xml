@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AbductedFarmers.iml" filepath="$PROJECT_DIR$/AbductedFarmers.iml" />
+      <module fileurl="file:///Library/Java/JavaVirtualMachines/jdk-14.0.2.jdk/Contents/Home/lib/javafx-sdk-15/javafx-sdk-15.iml" filepath="/Library/Java/JavaVirtualMachines/jdk-14.0.2.jdk/Contents/Home/lib/javafx-sdk-15/javafx-sdk-15.iml" />
+    </modules>
+  </component>
+</project>

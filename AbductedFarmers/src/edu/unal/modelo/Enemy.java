@@ -16,19 +16,11 @@ public class Enemy extends Character{
     public void moveRandom(){
         Random r = new Random();
         int dir = r.nextInt(4);
-        switch(dir){
-                case 0:
-                    move("left");
-                break;
-                case 1:
-                    move("right");
-                break;
-                case 2:
-                    move("down");
-                break;
-                case 3:
-                    move("up");
-                break;
+        switch (dir) {
+            case 0 -> move("left");
+            case 1 -> move("right");
+            case 2 -> move("down");
+            case 3 -> move("up");
         }
     }
     

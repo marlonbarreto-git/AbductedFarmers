@@ -1,21 +1,18 @@
 package edu.unal.vista;
 
 import edu.unal.modelo.Map;
-import static edu.unal.modelo.Map.timer;
-import java.applet.Applet;
-import java.applet.AudioClip;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.*;
+
+import static edu.unal.modelo.Map.timer;
 
 /**
  * @author Marlon Andres Barreto Tejada
