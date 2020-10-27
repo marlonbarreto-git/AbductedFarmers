@@ -1,5 +1,6 @@
 package edu.unal.modelo;
 
+import com.sun.java.swing.plaf.motif.MotifTextUI;
 import static edu.unal.vista.AbductedFarmers.loadImage;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -85,7 +86,7 @@ public abstract class Character {
 
     protected void cogerMaiz() {
         int x = getTilePosX(),y = getTilePosY();
-        if(Map.maize[y][x]){
+        if(Map.maize[y][x] == true){
             Map.maize[y][x] = false;
         }
     }

@@ -218,11 +218,10 @@ public class Map extends Canvas {
         return player;
     }
 
-/*
     public void setPlayer(Player player) {
         this.player = player;
     }
-*/
+
     public static boolean isBlock(int x, int y) {
         return block[y][x];
     }
@@ -409,7 +408,7 @@ public class Map extends Canvas {
     }
 
     private void drawChoza(Graphics g) {
-        drawObject(g, xRoot + (22 * tileSize), yRoot + (0), "choza.png");
+        drawObject(g, xRoot + (22 * tileSize), yRoot + (0 * tileSize), "choza.png");
         for (int j = 0; j < 3; j++) {
             for (int i = 22; i < 26; i++) {
                 block[j][i] = true;
@@ -436,7 +435,7 @@ public class Map extends Canvas {
         }
         for (int j = 0; j < 24; j++) {
             for (int i = 0; i < 36; i++) {
-                if (maize[j][i]) {
+                if (maize[j][i] == true) {
                     drawObject(g, xRoot + (i * tileSize), yRoot + (j * tileSize), "maize.png");
                 }
             }
